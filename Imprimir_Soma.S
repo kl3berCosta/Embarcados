@@ -1,7 +1,7 @@
     .data
-a:  .byte 10              @ char a = 10
-b:  .byte 20              @ char b = 20
-s:  .byte 0               @ char s = 0
+a:  .byte 10              
+b:  .byte 20              
+s:  .byte 0               
 msg: .asciz "O valor de s é %d.\n"
 
     .text
@@ -20,11 +20,11 @@ main:
     ldr r0, =s
     strb r3, [r0]         @ s = r3
 
-    @ chamada a printf("O valor de s é %d.\n", s)
-    ldr r0, =msg          @ primeiro argumento: formato
+    @ imprimir na tela
+    ldr r0, =msg          
     ldr r1, =s
-    ldrb r1, [r1]         @ segundo argumento: valor de s
-    bl printf             @ chama printf
+    ldrb r1, [r1]        
+    bl printf             
 
-    pop {lr}              @ restaura o registrador de retorno
-    bx lr                 @ retorna da função main
+    pop {lr}              
+    bx lr                 
